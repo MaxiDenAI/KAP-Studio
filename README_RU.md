@@ -1,40 +1,38 @@
-# KAP Studio v0.2.0 — Workspace Engine
+# KAP Studio v0.3.0 — Project Manager
 
-Первый модуль, предназначенный для будущего коммерческого релиза.
+## Главное изменение
 
-## Что реализовано
+Удалена зависимость от демонстрационного файла Photoshop.
 
-- открытый формат проекта `.kap`;
-- ZIP-контейнер проекта;
-- `manifest.yaml`;
-- `project.json`;
-- история ревизий;
-- атомарное сохранение;
-- экспорт JSON;
-- SHA-256 checksum;
-- Product DNA Editor;
-- Journey Editor;
+При запуске открывается Project Manager:
+
+- Новый проект;
+- Открыть проект;
+- Последние проекты.
+
+## Реализовано
+
+- Welcome Screen;
+- New Project Wizard;
+- Product DNA;
+- выбор маркетплейсов;
+- автоматическая Journey из 7 карточек;
+- формат `.kap`;
+- Recent Projects;
+- Product Editor;
+- Journey Table;
 - Review Engine;
-- автоматические тесты;
-- GitHub Actions для сборки Windows EXE.
+- GitHub Actions;
+- PyInstaller build без каталога `data`.
 
-## Что загрузить в GitHub
+## Обновление репозитория
 
-Скопируйте содержимое архива в корень репозитория с заменой существующих файлов.
+Загрузите содержимое архива в корень репозитория с заменой файлов.
 
-## После загрузки
+После Commit:
 
-1. Откройте `Actions`.
-2. Запустите `Build Windows EXE`.
-3. После зелёной галочки скачайте артефакт:
-   `KAP-Studio-Windows-v0.2.0`.
+`Actions → Build Windows EXE → Run workflow`
 
-## Следующий модуль
+Артефакт:
 
-KAP Registry Engine:
-- Registry Browser;
-- идентификаторы;
-- поиск;
-- фильтры;
-- версии объектов;
-- Pattern и Token Registry.
+`KAP-Studio-Windows-v0.3.0`
