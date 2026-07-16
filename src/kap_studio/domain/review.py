@@ -19,7 +19,7 @@ def review_project(project: KapProject) -> ReviewReport:
     errors, warnings = [], []
     p = project.product
 
-    if not all([p.id, p.name, p.version, p.manufacturer]):
+    if not all([p.id, p.name, p.version, p.manufacturer, p.category]):
         errors.append("Не заполнены обязательные поля Product DNA.")
 
     if len(p.journey) != 7:
@@ -28,12 +28,7 @@ def review_project(project: KapProject) -> ReviewReport:
     if [a.position for a in p.journey] != list(range(1, 8)):
         errors.append("Нарушена последовательность Journey 1–7.")
 
-    seen_stages = set()
     for a in p.journey:
-        if a.stage in seen_stages:
-            warnings.append(f"Повторяется Journey Stage: {a.stage}.")
-        seen_stages.add(a.stage)
-
         if a.hero_count != 1:
             errors.append(f"Карточка {a.position}: должен быть один Hero.")
         if not a.primary_message.strip():

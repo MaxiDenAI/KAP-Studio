@@ -32,8 +32,8 @@ class BrandSettings(BaseModel):
     approved_asset_id: str | None = None
 
 class KapProject(BaseModel):
-    kap_version: str = "0.2.0"
-    schema_version: str = "1.0"
+    kap_version: str = "0.3.0"
+    schema_version: str = "1.1"
     product: Product
     marketplace_profiles: List[str] = []
     brand: BrandSettings = BrandSettings()

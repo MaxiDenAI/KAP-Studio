@@ -1,23 +1,23 @@
 
 from __future__ import annotations
-import json, sys
+import sys
 from pathlib import Path
-
 from PySide6.QtWidgets import QApplication
 
 from kap_studio.application.project_service import ProjectService
-from kap_studio.domain.models import KapProject
-from kap_studio.ui.main_window import MainWindow
+from kap_studio.infrastructure.settings_repository import SettingsRepository
+from kap_studio.ui.welcome_window import WelcomeWindow
 from kap_studio.workspace.engine import WorkspaceEngine
 
 def main():
     app = QApplication(sys.argv)
-    base = Path(__file__).resolve().parents[2]
-    seed = KapProject.model_validate_json(
-        (base / "data" / "photoshop_2023.kap.json").read_text(encoding="utf-8")
-    )
+    app.setApplicationName("KAP Studio")
+
+    app_dir = Path.home() / "KAP Studio"
     service = ProjectService(WorkspaceEngine())
-    window = MainWindow(service, seed)
+    settings = SettingsRepository(app_dir)
+
+    window = WelcomeWindow(service, settings)
     window.show()
     raise SystemExit(app.exec())
 
