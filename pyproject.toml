@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kap-studio"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["PySide6>=6.7,<7", "pydantic>=2.7,<3"]
+
+[project.scripts]
+kap-studio = "kap_studio.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
